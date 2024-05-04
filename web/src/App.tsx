@@ -46,9 +46,9 @@ const CREATE_NEW_TASK = gql`
   }
 `;
 
-const MARK_TASK_COMPLETED = gql`
-  mutation TaskComplete($id: ID!) {
-    taskComplete(input: { id: $id }) {
+const TOGGLE_TASK_STATUS = gql`
+  mutation TaskToggleStatus($id: ID!) {
+    taskToggleStatus(input: { id: $id }) {
       task {
         id
       }
@@ -138,14 +138,14 @@ function TaskList({ tasks, setErrorMsg }: TaskListProps) {
 }
 
 function Task({ id, name, completed, setErrorMsg }: TaskProps) {
-  const [markCompleted, { loading }] = useMutation(MARK_TASK_COMPLETED, {
+  const [toggleStatus, { loading }] = useMutation(TOGGLE_TASK_STATUS, {
     refetchQueries: [GET_TASKS],
     onError: () => {
       setErrorMsg("Something went wrong");
     },
   });
 
-  const handleChange = () => markCompleted({ variables: { id: id } });
+  const handleChange = () => toggleStatus({ variables: { id: id } });
 
   return (
     <div className="form-control">

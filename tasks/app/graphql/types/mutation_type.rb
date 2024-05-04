@@ -3,6 +3,6 @@
 module Types
   class MutationType < Types::BaseObject
     field :task_create, mutation: Mutations::TaskCreate
-    field :task_complete, mutation: Mutations::TaskComplete
+    field :task_toggle_status, mutation: Mutations::TaskToggleStatus
   end
 end
