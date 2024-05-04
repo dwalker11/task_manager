@@ -60,13 +60,13 @@ export function TaskForm({ setErrorMsg }: TaskFormProps) {
     >
       <input
         ref={nameRef}
-        className="input input-boardered w-full max-w-xs"
+        className="input input-ghost input-bordered input-info w-full max-w-xs"
         type="text"
         placeholder="Enter task name"
       />
       <textarea
         ref={descriptionRef}
-        className="textarea textarea-boardered textarea-md w-full max-w-xs"
+        className="textarea  textarea-ghost textarea-boardered textarea-info textarea-md w-full max-w-xs"
         placeholder="Enter task description"
       ></textarea>
       {loading ? (
