@@ -8,7 +8,7 @@ interface TaskListProps {
 
 export function TaskList({ tasks, setErrorMsg }: TaskListProps) {
   return (
-    <div className="mt-4 w-full">
+    <div className="w-full">
       {tasks.map(({ id, name, completed }) => (
         <TaskItem
           key={id}

@@ -21,6 +21,7 @@ function App() {
         <UserNotification message={message} clearMessage={clearMessage} />
       </div>
       <TaskForm setErrorMsg={setMessage} />
+      <div className="divider"></div>
       <TaskList tasks={user.tasks} setErrorMsg={setMessage} />
     </div>
   );
