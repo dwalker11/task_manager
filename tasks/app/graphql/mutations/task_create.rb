@@ -10,6 +10,7 @@ module Mutations
 
     def resolve(task_input:)
       task = ::Task.new(**task_input)
+      task.completed = false
       raise GraphQL::ExecutionError.new "Error creating task", extensions: task.errors.to_hash unless task.save
 
       { task: task }
